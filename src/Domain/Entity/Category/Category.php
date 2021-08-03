@@ -5,18 +5,19 @@ declare(strict_types=1);
 namespace App\Domain\Entity\Category;
 
 use App\Domain\Entity\Category\AttributeCollection;
+use App\Domain\Entity\Category\CategoryName;
 
 final class Category
 {
     private AttributeCollection $attributeCollection;
-    private string $name;
+    private CategoryName $name;
 
     public function __construct(
-        string $name,
+        CategoryName $name,
         AttributeCollection $attributeCollection
     ) {
-        $this->name = $name;
         $this->attributeCollection = $attributeCollection;
+        $this->name = $name;
     }
 
     public function getAttributeCollection(): AttributeCollection 
@@ -24,7 +25,7 @@ final class Category
         return $this->attributeCollection;
     }
 
-    public function getName(): string 
+    public function getName(): CategoryName
     {
         return $this->name;
     }
