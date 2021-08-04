@@ -6,16 +6,16 @@ namespace App\Domain\Entity\Item;
 
 use App\Domain\Entity\Item\AttributeCollection;
 use App\Domain\Entity\Item\Item;
-use App\Domain\Entity\Item\Name;
+use App\Domain\Entity\Item\ItemName;
 
 final class Generic implements Item
 {
     private AttributeCollection $attributeCollection;
     private string $categoryId;
-    private Name $name;
+    private ItemName $name;
 
     public function __construct(
-        Name $name,
+        ItemName $name,
         AttributeCollection $attributeCollection,
         string $categoryId
     ) {
@@ -34,7 +34,7 @@ final class Generic implements Item
         return $this->categoryId;
     }
 
-    public function getName(): Name
+    public function getName(): ItemName
     {
         return $this->name;
     }

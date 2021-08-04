@@ -6,7 +6,7 @@ namespace App\Domain\Entity\Item;
 
 use InvalidArgumentException;
 
-final class Name
+final class ItemName
 {
     private string $value;
 

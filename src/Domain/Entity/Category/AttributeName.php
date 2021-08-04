@@ -19,7 +19,7 @@ final class AttributeName
         $this->value = $value;
     }
 
-    private static function isValid(string $value): bool
+    public static function isValid(string $value): bool
     {
         if (empty($value)) {
             return false;

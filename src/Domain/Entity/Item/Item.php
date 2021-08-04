@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Domain\Entity\Item;
 
 use App\Domain\Entity\Item\AttributeCollection;
-use App\Domain\Entity\Item\Name;
+use App\Domain\Entity\Item\ItemName;
 
 interface Item
 {
@@ -13,5 +13,5 @@ interface Item
 
     public function getCategoryId(): string;
 
-    public function getName(): Name;
+    public function getName(): ItemName;
 }

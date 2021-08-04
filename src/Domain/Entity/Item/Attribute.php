@@ -4,22 +4,20 @@ declare(strict_types=1);
 
 namespace App\Domain\Entity\Item;
 
-use App\Domain\Entity\Category\AttributeName;
-
 final class Attribute
 {
-    private AttributeName $name;
+    private string $categoryAttributeId;
     private string $value;
 
-    public function __construct(AttributeName $name, string $value)
+    public function __construct(string $categoryAttributeId, string $value)
     {
-        $this->name = $name;
+        $this->categoryAttributeId = $categoryAttributeId;
         $this->value = $value;
     }
 
-    public function getName(): AttributeName
+    public function getCategoryAttributeId(): string
     {
-        return $this->name;
+        return $this->categoryAttributeId;
     }
 
     public function getValue(): string
