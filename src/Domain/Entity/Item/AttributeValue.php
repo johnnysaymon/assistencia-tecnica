@@ -6,14 +6,14 @@ namespace App\Domain\Entity\Item;
 
 use InvalidArgumentException;
 
-final class ItemName
+final class AttributeValue
 {
     private string $value;
 
     public function __construct(string $value)
     {
         if (! self::isValid($value)) {
-            throw new InvalidArgumentException("Invalid Item Name", 1);
+            throw new InvalidArgumentException("Invalid Attribute Value from Item", 1);
         }
 
         $this->value = $value;
@@ -29,7 +29,7 @@ final class ItemName
             return false;
         }
 
-        if (strlen($value) > 200) {
+        if (strlen($value) > 250) {
             return false;
         }
 

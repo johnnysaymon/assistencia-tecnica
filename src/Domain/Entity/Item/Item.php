@@ -12,6 +12,8 @@ interface Item
     public function getAttributeCollection(): AttributeCollection;
 
     public function getCategoryId(): string;
+    
+    public function getId(): string;
 
     public function getName(): ItemName;
 }

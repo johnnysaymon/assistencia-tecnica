@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace App\Domain\Entity\Item;
 
-final class Attribute
+use App\Domain\Entity\Item\AttributeValue;
+use JsonSerializable;
+
+final class Attribute implements JsonSerializable
 {
     private string $categoryAttributeId;
-    private string $value;
+    private AttributeValue $value;
 
-    public function __construct(string $categoryAttributeId, string $value)
+    public function __construct(string $categoryAttributeId, AttributeValue $value)
     {
         $this->categoryAttributeId = $categoryAttributeId;
         $this->value = $value;
@@ -20,8 +23,16 @@ final class Attribute
         return $this->categoryAttributeId;
     }
 
-    public function getValue(): string
+    public function getValue(): AttributeValue
     {
         return $this->value;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'categoryAttributeId' => $this->getCategoryAttributeId(),
+            'value' => $this->getValue()->getValue()
+        ];
     }
 }

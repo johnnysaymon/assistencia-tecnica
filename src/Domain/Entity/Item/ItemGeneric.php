@@ -8,19 +8,23 @@ use App\Domain\Entity\Item\AttributeCollection;
 use App\Domain\Entity\Item\Item;
 use App\Domain\Entity\Item\ItemName;
 
-final class Generic implements Item
+final class ItemGeneric implements Item
 {
+    private const ID_PREFIX = 'ig-';
+
     private AttributeCollection $attributeCollection;
     private string $categoryId;
+    private string $id;
     private ItemName $name;
 
     public function __construct(
         ItemName $name,
-        AttributeCollection $attributeCollection,
-        string $categoryId
+        string $categoryId,
+        ?string $id = null
     ) {
-        $this->attributeCollection = $attributeCollection;
+        $this->attributeCollection = new AttributeCollection();
         $this->categoryId = $categoryId;
+        $this->id = $id ?? uniqid(self::ID_PREFIX);
         $this->name = $name;
     }
 
@@ -34,8 +38,19 @@ final class Generic implements Item
         return $this->categoryId;
     }
 
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
     public function getName(): ItemName
     {
         return $this->name;
+    }
+
+    public function setAttributeCollection(AttributeCollection $attributeCollection): self
+    {
+        $this->attributeCollection = $attributeCollection;
+        return $this;
     }
 }
