@@ -61,7 +61,7 @@ final class Service
     private function validateAttributeList(): void
     {
         foreach ($this->dataInput->attributeList as $attribute) {
-            if (! AttributeName::isValid($attribute)) {
+            if (! AttributeName::isValid($attribute['name'] ?? '')) {
                 $this->status = false;
                 return;
             }
