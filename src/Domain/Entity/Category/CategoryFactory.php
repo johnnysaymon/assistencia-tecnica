@@ -14,20 +14,26 @@ final class CategoryFactory
 {
     public static function create(
         string $name,
-        array $attributeList
+        array $attributeList,
+        ?string $id = null
     ): Category
     {
+        $category = new Category(
+            new CategoryName($name),
+            $id
+        );
+
         $attributeCollection = new AttributeCollection(
-            ...array_map(function(array $attribute) {
+            ...array_map(function(array $attribute) use ($category) {
                 return new Attribute(
-                    new AttributeName($attribute['name'])
+                    new AttributeName($attribute['name']),
+                    $category->getId()
                 );
             }, $attributeList)
         );
 
-        return new Category(
-            new CategoryName($name),
-            $attributeCollection
-        );
+        $category->setAttributeCollection($attributeCollection);
+
+        return $category;
     }
 }

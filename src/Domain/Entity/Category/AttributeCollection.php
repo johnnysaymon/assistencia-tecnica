@@ -13,4 +13,17 @@ final class AttributeCollection extends Iterator
     {
         parent::__construct($attributeList);
     }
+
+    public function findByCategoryId(string $id): AttributeCollection
+    {
+        $attributeList = [];
+
+        foreach ($this as $attribute) {
+            if ($attribute->getCategoryId() === $id) {
+                $attributeList[] = $attribute;
+            }
+        }
+
+        return new AttributeCollection(...$attributeList);
+    }
 }

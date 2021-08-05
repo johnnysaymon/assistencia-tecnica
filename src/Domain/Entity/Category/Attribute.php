@@ -12,13 +12,20 @@ final class Attribute
 {
     private const ID_PREFIX = 'ctg-attr-';
 
+    private string $categoryId;
     private string $id;
     private AttributeName $name;
 
-    public function __construct(AttributeName $name)
+    public function __construct(AttributeName $name, string $categoryId, ?string $id = null)
     {
-        $this->name = $name;
         $this->id = uniqid(self::ID_PREFIX);
+        $this->categoryId = $categoryId;
+        $this->name = $name;
+    }
+
+    public function getCategoryId(): string
+    {
+        return $this->categoryId;
     }
 
     public function getId(): string

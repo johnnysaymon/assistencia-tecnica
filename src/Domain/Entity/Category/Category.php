@@ -19,10 +19,10 @@ final class Category
 
     public function __construct(
         CategoryName $name,
-        AttributeCollection $attributeCollection
+        ?string $id = null
     ) {
-        $this->attributeCollection = $attributeCollection;
-        $this->id = uniqid(self::ID_PREFIX);
+        $this->attributeCollection = new AttributeCollection();
+        $this->id = $id ?? uniqid(self::ID_PREFIX);
         $this->name = $name;
     }
 
@@ -39,5 +39,11 @@ final class Category
     public function getName(): CategoryName
     {
         return $this->name;
+    }
+
+    public function setAttributeCollection(AttributeCollection $attributeCollection): self
+    {
+        $this->attributeCollection = $attributeCollection;
+        return $this;
     }
 }
