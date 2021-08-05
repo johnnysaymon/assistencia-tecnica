@@ -18,9 +18,9 @@ final class CategoryFactory
     ): Category
     {
         $attributeCollection = new AttributeCollection(
-            ...array_map(function(string $name) {
+            ...array_map(function(array $attribute) {
                 return new Attribute(
-                    new AttributeName($name)
+                    new AttributeName($attribute['name'])
                 );
             }, $attributeList)
         );

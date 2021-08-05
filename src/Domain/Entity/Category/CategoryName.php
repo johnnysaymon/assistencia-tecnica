@@ -12,7 +12,7 @@ final class CategoryName
 
     public function __construct(string $value)
     {
-        if (self::isValid($value)) {
+        if (! self::isValid($value)) {
             throw new InvalidArgumentException("Invalid Category Name", 1);
         }
 

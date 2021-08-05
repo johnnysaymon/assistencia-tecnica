@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Entity\Item;
+namespace App\Domain\Entity\Category;
 
-use App\Domain\Entity\Item\Attribute;
+use App\Domain\Entity\Category\Attribute;
 use Iterable\Iterator;
 
 final class AttributeCollection extends Iterator

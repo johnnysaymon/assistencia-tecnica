@@ -10,7 +10,7 @@ use function uniqid;
 
 final class Attribute
 {
-    private const ID_PREFIX = 'categ-attr';
+    private const ID_PREFIX = 'ctg-attr-';
 
     private string $id;
     private AttributeName $name;
