@@ -1,3 +1,5 @@
+# Sistema de Gestão de Itens do Serviço de Assistência Técnica
+
 ## Dependências
 
 - Docker
@@ -7,7 +9,7 @@ ou
 
 - Apache 2 (com rewrite modo habilitado);
 - PHP 7.4 (com PDO);
-- Mysql;
+- Mysql 8;
 - Composer 2.0;
 
 
@@ -17,11 +19,24 @@ ou
 2. Baixar as dependências com o comando `docker-compose run --rm composer update`;
 
 
-## Levandar Servidor
+## Levantar Servidor
 
-docker-compose up -d www
+É necessário checar se a porta 8000 já não está sendo usada por outro recurso.
+
+`docker-compose up -d www`
 
 
 ## Derrubar Servidor
 
-docker-compose down
+`docker-compose down`
+
+
+## Como acessar
+
+Através do http://localhost:8000/
+
+
+## Mais informações
+
+- [API](doc/api.md)
+- [Sobre o Desenvolvimento do Projeto](doc/about.md)
