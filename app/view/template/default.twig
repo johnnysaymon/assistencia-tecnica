@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}Sistema de Gestão de Itens do Serviço de Assistência Técnica</title>
+
+        {% block script %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            <h1>Sistema de Gestão de Itens do Serviço de Assistência Técnica</h1>
+            <nav>
+                <h2>Menu</h2>
+                <ul>
+                    <li><a href="/formularios/cadastro-de-categoria/">Cadastrar Categoria</a></li>
+                    <li><a href="/listagem/categorias/">Listar Categorias</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        {% block content %}{% endblock %}
+    </body>
+</html>

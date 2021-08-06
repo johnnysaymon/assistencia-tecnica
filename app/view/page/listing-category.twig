@@ -1,0 +1,36 @@
+{% extends "template/default.twig" %}
+
+{% block script %}
+    <script src="/assets/scripts/categoryListing.js"></script>
+{% endblock %}
+
+{% block content %}
+    <article>
+        <h1>Lista de Categorias</h1>
+
+        <table class="category-listing">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Atributos</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </article>
+
+    <template id="category-listing-item-template">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <button class="category-listing__button-create-item" type="button">Adicionar Item</button>
+                <button class="category-listing__button-view-itens"type="button">Ver Itens</button>
+            </td>
+        </tr>
+    </template>
+{% endblock %}

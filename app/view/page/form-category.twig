@@ -1,0 +1,36 @@
+{% extends "template/default.twig" %}
+
+{% block script %}
+    <script src="/assets/scripts/categoryForm.js"></script>
+{% endblock %}
+
+{% block content %}
+    <article>
+        <h1>Cadastro de Categoria</h1>
+
+        <form class="category-form" action="#" method="post">
+            <div>
+                <label>
+                    Nome<br>
+                    <input class="category-form__input-name" name="name" type="text">
+                </label>
+            </div>
+            <div class="category-form__attribute-box">
+                <h2>Atributos</h2>
+                <div class="category-form__attribute-item-list"></div>
+                <button class="category-form__attribute-button-add" type="button">Adicionar</button>
+            </div>
+            <button class="category-form__button-submit" type="button">Cadastrar</button>
+        </form>
+    </article>
+
+    <template id="category-form__attribute-item">
+        <div class="category-form__attribute-item">
+            <label>
+                Nome
+                <input class="category-form__attribute-input-name" name="attributeName[]" type="text">
+            </label>
+            <button class="category-form__attribute-button-remove" type="button">Remover</button>
+        </div>
+    </template>
+{% endblock %}

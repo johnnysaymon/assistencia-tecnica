@@ -6,11 +6,11 @@ namespace App\Infra\Controller\Http;
 
 use App\Infra\Controller\Http\Controller;
 use App\Domain\Repository\CategoryRepository;
-use App\Infra\Presenter\CategoryListingApi;
+use App\Infra\Presenter\CategoryListingApi as Presenter;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
-final class CategoryListing implements Controller
+final class CategoryListingApi implements Controller
 {
     private CategoryRepository $categoryRepository;
 
@@ -24,7 +24,7 @@ final class CategoryListing implements Controller
     {
         $categoryCollection = $this->categoryRepository->findAll();
 
-        $presenter = new CategoryListingApi();
+        $presenter = new Presenter();
         $presenter->setCategoryCollection($categoryCollection);
 
         return $presenter->make($response);
