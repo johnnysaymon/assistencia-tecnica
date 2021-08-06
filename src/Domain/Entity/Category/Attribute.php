@@ -18,7 +18,7 @@ final class Attribute
 
     public function __construct(AttributeName $name, string $categoryId, ?string $id = null)
     {
-        $this->id = uniqid(self::ID_PREFIX);
+        $this->id = $id ?? uniqid(self::ID_PREFIX);
         $this->categoryId = $categoryId;
         $this->name = $name;
     }

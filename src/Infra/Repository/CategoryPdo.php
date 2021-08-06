@@ -38,7 +38,7 @@ final class CategoryPdo implements CategoryRepository
         $categoryDataList = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         if (empty($categoryDataList)) {
-            new CategoryCollection();
+            return new CategoryCollection();
         }
 
         $categoryIdList = array_column($categoryDataList, 'id');
@@ -89,6 +89,39 @@ final class CategoryPdo implements CategoryRepository
         }
 
         return new AttributeCollection(...$attributeList);
+    }
+
+    public function findById(string $id): ?Category
+    {
+        $sql = <<<SQL
+            SELECT 
+                `id`, `name`
+            FROM 
+                `category`
+            WHERE
+                `id` = :id;
+        SQL;
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(':id', $id, PDO::PARAM_STR);
+        $statement->execute();
+
+        $categoryData = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if (empty($categoryData)) {
+            return null;
+        }
+
+        $attributeCollection = $this->findAttributeAll($categoryData['id']);
+
+        $category = new Category(
+            new CategoryName($categoryData['name']),
+            $categoryData['id']
+        );
+
+        $category->setAttributeCollection($attributeCollection);
+
+        return $category;
     }
 
     /**

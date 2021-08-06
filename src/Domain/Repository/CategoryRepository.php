@@ -18,5 +18,10 @@ interface CategoryRepository
     /**
      * @throws Exception
      */
+    public function findById(string $id): ?Category;
+
+    /**
+     * @throws Exception
+     */
     public function store(Category $category): void;
 }

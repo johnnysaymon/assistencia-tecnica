@@ -26,4 +26,15 @@ final class AttributeCollection extends Iterator
 
         return new AttributeCollection(...$attributeList);
     }
+
+    public function hasId(string $id): bool
+    {
+        foreach ($this as $attribute) {
+            if ($attribute->getId() === $id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
