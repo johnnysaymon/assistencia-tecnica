@@ -8,6 +8,7 @@ use App\Domain\UseCase\CreateItem\DataInput;
 use App\Domain\UseCase\CreateItem\Service as CreateItemUseCase;
 use App\Infra\Controller\Http\Controller;
 use App\Infra\Presenter\ItemStoreResultApi;
+use Exception;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
@@ -38,6 +39,19 @@ final class ItemCreate implements Controller
     private function createDataInput(): DataInput
     {
         $dataRequest = json_decode($this->request->getBody()->getContents(), true);
+        $dataRequest['categoryId'] = $this->getCategoryId();
         return DataInput::createFromArray($dataRequest);
+    }
+
+    private function getCategoryId(): string
+    {
+        $path = $this->request->getUri()->getPath();
+        $pattern = '/categorias\/([\d\w\-]+)\/itens\/$/';
+
+        if (! preg_match($pattern, $path, $match)) {
+            throw new Exception("ID Category undefined", 1);
+        }
+
+        return $match[1];
     }
 }

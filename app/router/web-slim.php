@@ -35,9 +35,9 @@ $app->post('/categorias/', CategoryCreate::class);
 
 $app->get('/categorias/{id}/itens/', ItemListing::class);
 
-$app->get('/formularios/cadastro-de-categoria/', CategoryForm::class);
+$app->post('/categorias/{id}/itens/', ItemCreate::class);
 
-$app->post('/itens/', ItemCreate::class);
+$app->get('/formularios/cadastro-de-categoria/', CategoryForm::class);
 
 $app->get('/listagem/categorias/', CategoryListingPage::class);
 
