@@ -4,24 +4,24 @@ Foram criados quatro endpoints para alcançar o objetivo desse projeto, são ele
 
 ## Criar Categoria
 
-```POST /categorias/```
+`POST /categorias/`
 
 Contendo o seguinte corpo:
 
 ```
 {
-    "name": "Nome da Categoria",
-    "attributeList": [
-        {"name": "Nome do Atributo 1"},
-        {"name": "Nome do Atributo 2"},
-        {"name": "Nome do Atributo 3"}
-    ]
+  "name": "Nome da Categoria",
+  "attributeList": [
+    {"name": "Nome do Atributo 1"},
+    {"name": "Nome do Atributo 2"},
+    {"name": "Nome do Atributo 3"}
+  ]
 }
 ```
 
 ## Obter Categorias
 
-```GET /categorias/```
+`GET /categorias/`
 
 Com um retorno semelhante a esse:
 
@@ -52,34 +52,33 @@ Com um retorno semelhante a esse:
 
 ## Criar Itens
 
-```POST /itens/```
+`POST categorias/:id/itens/`
 
 Contendo o seguinte corpo:
 
 ```
 {
-    "name": "Nome do Item",
-    "categoryId": "categ610c4757b26c4",
-    "attributeList": [
-        {
-            "categoryAttributeId": "ctg-attr-610c4771cf246",
-            "value": "Valor do Atributo"
-        },
-        {
-            "categoryAttributeId": "ctg-attr-610c4771cf254",
-            "value": "Valor do Atributo"
-        },
-        {
-            "categoryAttributeId": "ctg-attr-610c4771cf256",
-            "value": "Valor do Atributo"
-        }
-    ]
+  "name": "Nome do Item",
+  "attributeList": [
+    {
+      "categoryAttributeId": "ctg-attr-610c4771cf246",
+      "value": "Valor do Atributo"
+    },
+    {
+      "categoryAttributeId": "ctg-attr-610c4771cf254",
+      "value": "Valor do Atributo"
+    },
+    {
+      "categoryAttributeId": "ctg-attr-610c4771cf256",
+      "value": "Valor do Atributo"
+    }
+  ]
 }
 ```
 
 ## Obter Itens
 
-```GET categorias/:id/itens/```
+`GET categorias/:id/itens/`
 
 Lembrar de modificar por um ID existente de categoria.
 Com um retorno semelhante a esse:
