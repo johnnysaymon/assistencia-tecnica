@@ -14,6 +14,7 @@ function categoryFormLoad()
 
     buttonAttributeAdd.addEventListener('click', addAttributeItem)
     buttonSubmit.addEventListener('click', save)
+    form.addEventListener('submit', save)
 
     function addAttributeItem()
     {
@@ -29,8 +30,10 @@ function categoryFormLoad()
         this.parentNode.remove()
     }
 
-    function save()
+    function save(e)
     {
+        e.preventDefault()
+        
         const body = {
             'name': inputName.value,
             'attributeList': getAttributeData()

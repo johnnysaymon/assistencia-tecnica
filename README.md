@@ -8,7 +8,7 @@
 ou
 
 - Apache 2 (com rewrite modo habilitado);
-- PHP 7.4 (com PDO);
+- PHP 8.0 (com PDO);
 - Mysql 8;
 - Composer 2.0;
 
